@@ -18,3 +18,8 @@ jobs:
       run: |
         echo $YOUR_SECRET_NAME
         echo "Secret Value: ${{ secrets.YOUR_SECRET_NAME }}"
+    - name: Parts
+      run: |
+        FULL_SECRET=${{ secrets.YOUR_SECRET_NAME }}
+        PARTIAL_SECRET=${FULL_SECRET:0:2}
+        echo "First Two Characters: $PARTIAL_SECRET"
