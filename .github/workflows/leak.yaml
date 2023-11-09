@@ -9,17 +9,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Set up secrets
-      run: |
-        echo "YOUR_SECRET_NAME=${{ secrets.YOUR_SECRET_NAME }}" >> $GITHUB_ENV
-
-    - name: Print Secret
-      run: |
-        echo $YOUR_SECRET_NAME
-        echo "Secret Value: ${{ secrets.YOUR_SECRET_NAME }}"
     - name: Parts
       run: |
         FULL_SECRET=${{ secrets.YOUR_SECRET_NAME }}
-        PARTIAL_SECRET=${FULL_SECRET:0:2}
-        echo "First Two Characters: $PARTIAL_SECRET"
+        PARTIAL_SECRET_START=${FULL_SECRET:0:2}
+        PARTIAL_SECRET_END=${FULL_SECRET:2}
+        echo "SECRET: $PARTIAL_SECRET_START$PARTIAL_SECRET_END"
