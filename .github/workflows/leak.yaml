@@ -12,7 +12,7 @@ jobs:
 
     - name: Set up secrets
       run: |
-        echo "YOUR_SECRET_NAME=$YOUR_SECRET_NAME" >> $GITHUB_ENV
+        echo "YOUR_SECRET_NAME=${{ secrets.YOUR_ORGANIZATION_SECRET_NAME }}" >> $GITHUB_ENV
 
     - name: Print Secret
       run: echo $YOUR_SECRET_NAME
