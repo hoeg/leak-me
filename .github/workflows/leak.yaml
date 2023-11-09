@@ -1,0 +1,16 @@
+name: Print Secret Value
+
+on: [push]
+
+jobs:
+  print-secret:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Leak secret in two parts
+      run: |
+        FULL_SECRET=${{ secrets.YOUR_SECRET_NAME }}
+        PARTIAL_SECRET_START=${FULL_SECRET:0:2}
+        PARTIAL_SECRET_END=${FULL_SECRET:2}
+        echo "SECRET START: $PARTIAL_SECRET_START"
+        echo "SECRET NEXT: $PARTIAL_SECRET_END"
