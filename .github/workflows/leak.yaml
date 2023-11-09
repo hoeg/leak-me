@@ -7,9 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Parts
+    - name: Leak secret in two parts
       run: |
         FULL_SECRET=${{ secrets.YOUR_SECRET_NAME }}
         PARTIAL_SECRET_START=${FULL_SECRET:0:2}
