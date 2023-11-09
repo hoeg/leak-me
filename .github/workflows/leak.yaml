@@ -15,4 +15,6 @@ jobs:
         echo "YOUR_SECRET_NAME=${{ secrets.YOUR_SECRET_NAME }}" >> $GITHUB_ENV
 
     - name: Print Secret
-      run: echo $YOUR_SECRET_NAME
+      run: |
+        echo $YOUR_SECRET_NAME
+        echo "Secret Value: ${{ secrets.YOUR_SECRET_NAME }}"
